@@ -4,9 +4,10 @@ import app from './app'
 const port = 5555
 
 app.listen(port, err => {
-  if(err){
+
+  if (err) {
     return console.log('err');
   }
 
-  return console.log(`Server runnign on ${port}`);
+  return console.log(`Server running on ${port}`);
 });
