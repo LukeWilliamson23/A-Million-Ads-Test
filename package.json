@@ -4,8 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node ./dist/start.js",
-    "dev": "./node_modules/nodemon/bin/nodemon.js",
+    "compile": "tsc",
+    "start": "npm run compile && node ./dist/start.js",
+    "dev": "node ./node_modules/nodemon/bin/nodemon.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/MattBidewell/A-Million-Ads-Test#readme",
   "dependencies": {
+    "@types/node": "^9.4.7",
     "express": "^4.16.3",
     "typescript": "^2.7.2"
   },
