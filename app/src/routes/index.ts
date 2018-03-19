@@ -1,10 +1,23 @@
-import * as express from 'express'
-
-const router = express.Router();
-
-router.get('/', (req, res, next) => {
-  res.json('nodemon set up ');
-});
+// import * as express from 'express'
+import { Router, Request, Response } from 'express';
+import Controller from '../controller/controller';
 
 
-export default router
+class ApiRouter {
+
+  // Need to build class around express.router
+  public router: Router;
+
+  constructor() {
+    this.router = Router();
+    this.addRoutes();
+  }
+
+  public addRoutes() {
+    this.router.get('/:num', Controller.calculatePrime);
+  }
+}
+
+const apiRouter = new ApiRouter();
+
+export default apiRouter.router;
