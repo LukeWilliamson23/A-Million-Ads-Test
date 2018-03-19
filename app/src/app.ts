@@ -1,21 +1,28 @@
-import * as express from 'express'
-import router from './routes/index'
+import * as express from 'express';
+import * as bodyParser from 'body-parser';
+import apiRouter from './routes/index';
 
+class App {
 
-class App{
+  public express: express.Application;
 
-  // public variable
-  public express
-
-  constructor () {
-    this.express = express()
-    this.mountRoutes()
+  // construct our express app
+  constructor() {
+    this.express = express();
+    this.middleware();
+    this.routes();
   }
 
-  // method to mount routes to express obj
-  private mountRoutes (): void{
-    this.express.use('/', router)
+  private middleware(): void {
+    // remove
+    this.express.use(bodyParser.json());
   }
+
+  // Initiate routers  
+  private routes(): void {
+    this.express.use('/', apiRouter);
+  }
+
 }
 
-export default new App().express
+export default new App().express;
