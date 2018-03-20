@@ -13,6 +13,7 @@ class ApiRouter {
     this.addRoutes();
   }
 
+  // mounts routes to router
   public addRoutes() {
     this.router.get('/:num', Controller.calculatePrime);
   }
