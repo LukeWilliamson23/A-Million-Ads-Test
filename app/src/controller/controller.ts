@@ -8,15 +8,27 @@ class Controller {
    */
   public calculatePrime = (req: Request, res: Response): void => {
 
-    // if (parseInt(req.params.num))
-    const input: number = parseInt(req.params.num);
+    // converts input into a number / NaN
+    const input: number = Number(req.params.num);
 
+    // if input is not a number: return error
     if (isNaN(input)) {
       res.status(422);
       res.json({
         'status': '422',
         'error': 'Not a number'
       });
+      return;
+    }
+
+    // If input is negative: return error.
+    if (Math.sign(input) === -1) {
+      res.status(422);
+      res.json({
+        'status': '422',
+        'error': 'Negative Numbers cannot be a prime number'
+      });
+      return;
     }
 
     // if current number is prime, return that, else run nearestPrime
