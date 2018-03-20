@@ -8,13 +8,25 @@ class Controller {
    */
   public calculatePrime = (req: Request, res: Response): void => {
 
+    // if (parseInt(req.params.num))
     const input: number = parseInt(req.params.num);
+
+    if (isNaN(input)) {
+      res.status(422);
+      res.json({
+        'status': '422',
+        'error': 'Not a number'
+      });
+    }
 
     // if current number is prime, return that, else run nearestPrime
     const nearestPrimeValue: number = this.isPrime(input) ? input : this.nearestPrime(input);
 
     res.status(200);
-    res.json({ 'nearest Prime': nearestPrimeValue });
+    res.json({
+      'status': 200,
+      'nearest Prime': nearestPrimeValue
+    });
   }
 
   /**
