@@ -18,19 +18,17 @@ class Controller {
       err.message = 'Input is not a number';
       res.status(422);
 
-      return next(err);
-      ;
+      next(err);
     }
 
     // If input is negative: return error.
     if (Math.sign(input) === -1) {
 
       const err = new Error();
-      err.message = 'Negative numbers are not prime numbers. (Nearest will always be 2.';
+      err.message = 'Negative numbers are not prime numbers. (Nearest will always be 2.)';
       res.status(404);
 
-      return next(err);
-      ;
+      next(err);
     }
 
     // if current number is prime, return that, else run nearestPrime
@@ -38,7 +36,6 @@ class Controller {
 
     res.status(200);
     res.json({
-      'status': 200,
       'nearest Prime': nearestPrimeValue
     });
   }

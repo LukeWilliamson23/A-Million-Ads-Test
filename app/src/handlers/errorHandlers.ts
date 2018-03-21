@@ -14,19 +14,16 @@ class ErrorHandlers {
 
   // send back error message and error status code.
   public handleError = (err, req: Request, res: Response): void => {
-    if (process.env.NODE_ENV === 'PRODUCTION') {
-      res.json(err.message);
-    }
-    else {
-      const errorDetails = {
-        status: res.status(),
-        message: err.message,
-        stack: err.stack || '',
-      };
-      res.json(errorDetails);
-    }
+    const errorDetails = {
+      status: res.status(),
+      message: err.message,
+      stack: err.stack || '',
+    };
+    res.json(errorDetails);
   }
+
 }
+
 
 const errorHandlers = new ErrorHandlers();
 
