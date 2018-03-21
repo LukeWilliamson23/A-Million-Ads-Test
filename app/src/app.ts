@@ -1,6 +1,7 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import apiRouter from './routes/api';
+import errorHandlers from './handlers/errorHandlers';
 
 // express application class
 class App {
@@ -12,6 +13,7 @@ class App {
     this.express = express();
     //this.middleware();
     this.routes();
+    this.errorHandling();
   }
 
   private middleware(): void {
@@ -21,6 +23,11 @@ class App {
   // Initiate routers  
   private routes(): void {
     this.express.use('/api', apiRouter);
+  }
+
+  private errorHandling(): void {
+    this.express.use(errorHandlers.notFound);
+    this.express.use(errorHandlers.handleError);
   }
 
 }
