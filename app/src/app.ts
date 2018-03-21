@@ -27,7 +27,6 @@ class App {
 
   private errorHandling(): void {
     this.express.use(errorHandlers.notFound);
-    this.express.use(errorHandlers.handleError);
   }
 
 }
