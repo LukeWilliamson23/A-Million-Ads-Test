@@ -14,21 +14,23 @@ class Controller {
     // if input is not a number: return error
     if (isNaN(input)) {
 
-      const err = new Error();
-      err.message = 'Input is not a number';
-      res.status(422);
-
-      next(err);
+      const err = {
+        error: 'Input is not a number'
+      }
+      res.status(400);
+      res.json(err);
+      return;
     }
 
     // If input is negative: return error.
     if (Math.sign(input) === -1) {
 
-      const err = new Error();
-      err.message = 'Negative numbers are not prime numbers. (Nearest will always be 2.)';
-      res.status(404);
-
-      next(err);
+      const err = {
+        error: 'Negative numbers are not prime numbers. (Nearest will always be 2.)'
+      }
+      res.status(400);
+      res.json(err);
+      return;
     }
 
     // if current number is prime, return that, else run nearestPrime
@@ -36,7 +38,7 @@ class Controller {
 
     res.status(200);
     res.json({
-      'nearest Prime': nearestPrimeValue
+      'Nearest Prime': nearestPrimeValue
     });
   }
 
