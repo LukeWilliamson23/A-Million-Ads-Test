@@ -1,4 +1,4 @@
-import { Router, Request, Response } from 'express';
+import { Router, Request, Response, NextFunction } from 'express';
 
 
 class Controller {
@@ -6,29 +6,31 @@ class Controller {
   /**
    * takes the request params and returns the nearest prime
    */
-  public calculatePrime = (req: Request, res: Response): void => {
+  public calculatePrime = (req: Request, res: Response, next: NextFunction): void => {
 
     // converts input into a number / NaN
     const input: number = Number(req.params.num);
 
     // if input is not a number: return error
     if (isNaN(input)) {
+
+      const err = new Error();
+      err.message = 'Input is not a number';
       res.status(422);
-      res.json({
-        'status': '422',
-        'error': 'Not a number'
-      });
-      return;
+
+      return next(err);
+      ;
     }
 
     // If input is negative: return error.
     if (Math.sign(input) === -1) {
-      res.status(422);
-      res.json({
-        'status': '422',
-        'error': 'Negative Numbers cannot be a prime number'
-      });
-      return;
+
+      const err = new Error();
+      err.message = 'Negative numbers are not prime numbers. (Nearest will always be 2.';
+      res.status(404);
+
+      return next(err);
+      ;
     }
 
     // if current number is prime, return that, else run nearestPrime
