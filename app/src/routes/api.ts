@@ -1,5 +1,5 @@
 // import * as express from 'express'
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
 import Controller from '../controller/controller';
 
 
@@ -19,6 +19,7 @@ class ApiRouter {
   }
 }
 
+// need to initiate the router before we export it.
 const apiRouter = new ApiRouter();
 
 export default apiRouter.router;
