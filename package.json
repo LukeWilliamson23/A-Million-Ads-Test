@@ -6,7 +6,7 @@
   "scripts": {
     "tsc": "tsc -w",
     "server": "nodemon ./dist/start.js",
-    "start": "tsc && npm run server",
+    "start": "tsc && node ./dist/start.js",
     "test": "tsc && mocha \"./dist/tests/**/*.tests.js\" || true"
   },
   "repository": {
