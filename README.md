@@ -17,7 +17,7 @@ From here, run the follow command to compile and start the server.
 npm run start
 ```
 
-On your preferred browser, naviagate to localhost:5555/api/ and append the digit you wish to find the closet prime number to the end of the URL.
+On your preferred browser, naviagate to localhost:5555/api/ and append the digit you wish to find the closest prime number to the end of the URL.
 
 ### Example input/output
 
@@ -34,8 +34,8 @@ Nearest Prime: 57483347
 
 ## How to run tests
 
-To run the mocha tests, clone the repo and CD into the directory. 
-From here, run the follow commadn to compile the typescript and run the tests.
+To run the mocha tests, clone the repo and CD into the directory.
+From here, run the follow command to compile the typescript and run the tests.
 ```bash
 npm run test
 ```
