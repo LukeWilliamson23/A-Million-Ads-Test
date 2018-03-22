@@ -22,7 +22,7 @@ On your preferred browser, naviagate to localhost:5555/api/ and append the digit
 ## How to run tests
 
 To run the mocha tests, clone the repo and CD into the directory. 
-From here, run teh follow commadn to compile the typescript and run the tests.
+From here, run the follow commadn to compile the typescript and run the tests.
 ```bash
 npm run test
 ```
