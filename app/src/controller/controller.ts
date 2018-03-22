@@ -44,6 +44,7 @@ class Controller {
 
   /**
    * Takes a number a checks to see if its neighbours by a value of x are primes.
+   * Always chooses the higher prime number of the two if the distance is the same.
    * eg:  
    * num = 10, value = 1: means it checks 9 and 11.
    * num = 11, value = 4: means it checks 7 and 15.
@@ -62,6 +63,8 @@ class Controller {
    * checks to see if a number is a prime number or not.
    */
   private isPrime = (num: number): boolean => {
+
+    if (num === 4) return false;
 
     const middle: number = Math.ceil(num / 2);
 
