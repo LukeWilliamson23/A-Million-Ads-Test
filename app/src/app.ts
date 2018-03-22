@@ -22,7 +22,7 @@ class App {
 
   // Initiate routers  
   private routes(): void {
-    this.express.use('/api', apiRouter);
+    this.express.use('/api', apiRouter.router);
   }
 
   private errorHandling(): void {

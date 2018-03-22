@@ -20,6 +20,6 @@ class ApiRouter {
 }
 
 // need to initiate the router before we export it.
-const apiRouter = new ApiRouter();
+const apiRouter: any = new ApiRouter();
 
-export default apiRouter.router;
+export default apiRouter;
