@@ -43,7 +43,7 @@ class Controller {
   }
 
   /**
-   * Takes a number a checks to see if its neighbours by a value of x are primes.
+   * Takes a number, checks to see if its neighbours by a value of x are primes.
    * Always chooses the higher prime number of the two if the distance is the same.
    * eg:  
    * num = 10, value = 1: means it checks 9 and 11.
